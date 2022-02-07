@@ -1,0 +1,42 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Lato', sans-serif;
+}
+
+html{
+     font-size: 62.5%;
+}
+
+.inputContainer{
+     margin: 0 auto;
+     border: 1px solid;
+     width: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 50px;
+
+
+     input{
+          height: 20px;
+          width: 50%;
+          height: 80%;
+          border: none;
+          border-bottom: 1px solid;
+          font-size: 2.0rem;
+          text-align: center;
+     }
+
+     input:focus{
+          outline: none;
+     }
+
+     .crossIcon{
+          
+         i{
+          cursor: pointer;
+        } 
+     }
+}
