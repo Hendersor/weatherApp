@@ -151,4 +151,53 @@ html {
   width: 100%;
   height: 200px;
 }
+
+.appContainer .daysContainer .daysWeatherContainer {
+  border: 1px solid red;
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appContainer .daysContainer .daysWeatherContainer .day {
+  border-right: 1px solid gray;
+  width: 64px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.appContainer .daysContainer .daysWeatherContainer .day h1 {
+  font-size: 1.5rem;
+}
+
+.appContainer .daysContainer .daysWeatherContainer .day span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.appContainer .daysContainer .daysWeatherContainer .day5 {
+  border-right: none;
+}
 /*# sourceMappingURL=global.css.map */
