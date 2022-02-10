@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="/dist/css/global.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+     <title>Weather app</title>
+</head>
+<body>
+     <div class="inputContainer">
+       <span id="crossIcon" class="crossIcon hidden"> <i class="fas fa-times fa-lg"> </i> </span>    <input id="inputCity" type="text"> <figure class="searchIcon"><i id="searchIcon" class="fas fa-search-location fa-2x"></i></figure>
+     </div>
+    
+     <section class="appContainer">
+          <figure class="iconContainer">
+               <span id="iconWeather" class="icon"> <img id="iconImage" src="" alt="Weather Icon"> </span>
+               <h1 id="temperature">25</h1>
+          </figure>
+
+          <section class="termicSensation">
+               <h2 id="clime"></h2>
+               <h2 id="termic"></h2>
+          </section>
+
+          <section class="ubication">
+               <h1 id="location">Tijuana</h1>
+               <h2 id="day"></h2>
+               <h1 id="date"></h1>
+          </section>
+
+          <hr class="divider">
+
+          <section class="daysContainer">
+               <section class="daysWeatherContainer">
+                    <div class="day day1">
+                         <h1 class="week"></h1>
+                         <span></span>
+                         <h2 class="tagTemperature"></h2>
+                    </div>
+
+                    <div class="day day2">
+                         <h1 class="week"></h1>
+                         <span></span>
+                         <h2 class="tagTemperature"></h2>
+                    </div>
+
+                    <div class="day day3">
+                         <h1 class="week"></h1>
+                         <span></span>
+                         <h2 class="tagTemperature"></h2>
+                    </div>
+
+                    <div class="day day4">
+                         <h1 class="week"></h1>
+                         <span></span>
+                         <h2 class="tagTemperature"></h2>
+                    </div>
+
+                    <div class="day day5">
+                         <h1 class="week"></h1>
+                         <span></span>
+                         <h2 class="tagTemperature"></h2>
+                    </div>
+               </section>
+          </section>
+     </section>
+     <script src="https://kit.fontawesome.com/8716e003df.js" crossorigin="anonymous"></script>
+     <script type="module" src="/src/app.js"></script>
+</body>
+</html>
