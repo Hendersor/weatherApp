@@ -57,6 +57,8 @@ html{
      }
 }
 
+
+
 .appContainer{
      width: 30%;
      height: 80vh;
@@ -67,7 +69,10 @@ html{
      border-radius: 25px;
      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
      margin-top: 30px;
-     background: #ffffff;
+     background: rgb(0,212,255);
+     background: linear-gradient(0deg, rgba(0,212,255,1) 0%, rgba(130,187,255,1) 73%, rgba(108,100,244,1) 100%);
+
+  
 
      .iconContainer{
           height: 150px;
@@ -198,3 +203,34 @@ html{
      }
 }
 
+.displayOff{
+     display: none;
+}
+
+
+
+
+.displayOn{
+     display: flex;
+     transition: transform 300ms;
+     transform: translate(0, 10px);
+     animation-name: enter;
+     animation-duration: 550ms;
+     animation-fill-mode: forwards;
+     transition-timing-function: ease-in-out;
+}
+
+
+@keyframes enter {
+     0%{
+          opacity: 0;
+      }
+  
+      50%{
+          opacity: 0.5;
+      }
+  
+      100%{
+          opacity: 1;
+      }
+}

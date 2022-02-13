@@ -12,13 +12,13 @@
 </head>
 <body>
      <div class="inputContainer">
-       <span id="crossIcon" class="crossIcon hidden"> <i class="fas fa-times fa-lg"> </i> </span>    <input id="inputCity" type="text"> <figure class="searchIcon"><i id="searchIcon" class="fas fa-search-location fa-2x"></i></figure>
+       <span id="crossIcon" class="crossIcon hidden"> <i class="fas fa-times fa-lg"> </i> </span>    <input id="inputCity" type="text" placeholder="Ciudad/Estado/Pais"> <figure class="searchIcon"><i id="searchIcon" class="fas fa-search-location fa-2x"></i></figure>
      </div>
     
-     <section class="appContainer">
+     <section id="mainApp" class="appContainer displayOff">
           <figure class="iconContainer">
                <span id="iconWeather" class="icon"> <img id="iconImage" src="" alt="Weather Icon"> </span>
-               <h1 id="temperature">25</h1>
+               <h1 id="temperature"></h1>
           </figure>
 
           <section class="termicSensation">
@@ -27,7 +27,7 @@
           </section>
 
           <section class="ubication">
-               <h1 id="location">Tijuana</h1>
+               <h1 id="location"></h1>
                <h2 id="day"></h2>
                <h1 id="date"></h1>
           </section>

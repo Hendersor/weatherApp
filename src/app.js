@@ -28,6 +28,11 @@ function getCityInput(){
      }
 }
 
+searchIcon.addEventListener('click', search);
+function search(){
+     getWeather();
+}
+
 inputCity.addEventListener('keyup', citySearch);
 function citySearch(e){
      if(e.keyCode == 13 && cityName != ''){
@@ -50,6 +55,20 @@ const getDate = () => {
      date.innerText = finalDate;
 }
 
+const todayIs = daysArray[day];
+let todayIsIndex = daysArray.indexOf(todayIs);
+let count = todayIsIndex + 2;
+let newWeek = [];
+const getTheNewWeek = () =>{
+     let index = count % daysArray.length;
+     newWeek.push(daysArray[index])
+     count++;
+     
+     if (count === daysArray.length) {
+       count = 0;
+     }
+}
+
 async function getWeather(){
      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=86e024a5e8c23b961035736b9f56fd33`);
      const data = await response.json();     
@@ -66,7 +85,7 @@ async function getWeather(){
      const dataTemperature = weatherData.current.temp.toFixed(0);
      temperature.innerText = `${dataTemperature}°C`;
 
-     const mainWeather = weatherData.current.weather[0].main;
+     const mainWeather = weatherData.current.weather[0].description;
      clime.innerText = mainWeather;
 
      const feelsLike = weatherData.current.feels_like.toFixed(0);
@@ -95,7 +114,7 @@ async function getWeather(){
      const lowTemperatures = document.querySelectorAll('.lowTemperature');
      const highTemperatures = document.querySelectorAll('.highTemperature');
      const newWeekArray = weatherData.daily.slice(1);
-     console.log(newWeekArray[0].temp);
+     console.log(newWeekArray);
      for(let i = 0; i < iconWeekClasses.length; i++){
           let weatherIconWeek = newWeekArray[i].weather[0].icon;
           iconWeekClasses[i].src = `http://openweathermap.org/img/wn/${weatherIconWeek}@4x.png`;
@@ -103,21 +122,12 @@ async function getWeather(){
           highTemperatures[i].innerText = `${newWeekArray[i].temp.max.toFixed(0)}°C`;
      }
 
-     
+     console.log(newWeek)
+     displayAppAnimation();
 }
 
 
-const todayIs = daysArray[day];
-let todayIsIndex = daysArray.indexOf(todayIs);
-let count = todayIsIndex + 1;
-let newWeek = [];
-
-const getTheNewWeek = () =>{
-     let index = count % daysArray.length;
-     newWeek.push(daysArray[index])
-     count++;
-     
-     if (count === daysArray.length) {
-       count = 0;
-     }
+function displayAppAnimation(){
+     const mainApp = document.getElementById('mainApp');
+     mainApp.classList.replace('displayOff', 'displayOn');
 }
