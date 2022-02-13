@@ -10,6 +10,7 @@ const date = document.getElementById('date');
 const iconImage = document.getElementById('iconImage');
 const dayText = document.getElementById('day');
 
+
 let cityName;
 
 crossIcon.addEventListener('click', cleanInput);
@@ -34,6 +35,20 @@ function citySearch(e){
      }
 }
 
+
+const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
+'August', 'September', 'October', 'November', 'December'];
+
+const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const time = new Date();
+const day = time.getDate();
+const year = time.getFullYear();
+
+const getDate = () => {
+     const month = monthArray[time.getMonth()];
+     const finalDate = `${month}/${day}/${year}`;
+     date.innerText = finalDate;
+}
 
 async function getWeather(){
      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=86e024a5e8c23b961035736b9f56fd33`);
@@ -68,38 +83,25 @@ async function getWeather(){
      dayText.innerText = todayIs;
      
      const dayClasses = document.querySelectorAll('.daysWeatherContainer .day .week');
-     const daysClassesArray = [...dayClasses];
-
-
-     for(let i = 0; i < 5; i++){
-          getTheNewWeek(i)
-     }
+     const iconWeekClasses = document.querySelectorAll('.daysWeatherContainer .day .weekIconContainer');
      
+
      for(let i=0; i < 5; i++){
+          getTheNewWeek(i)
           dayClasses[i].innerText = newWeek[i];
      }
-
-     // const daily = weatherData.daily;
-     // daily.forEach( e =>{
-     //      tagSelector.innerText = e.temp.day;
-     //      console.log(tagSelector);
-     //      console.log(e.temp.day);
-     // });
-}
+     
 
 
-const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
-'August', 'September', 'October', 'November', 'December'];
+     const newWeekArray = weatherData.daily.slice(1);
+     for(let i = 0; i < iconWeekClasses.length; i++){
+          let weatherIconWeek = newWeekArray[i].weather[0].icon;
+          iconWeekClasses[i].src = `http://openweathermap.org/img/wn/${weatherIconWeek}@4x.png`;
 
-const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const time = new Date();
-const day = time.getDate();
-const year = time.getFullYear();
+          
+     }
 
-const getDate = () => {
-     const month = monthArray[time.getMonth()];
-     const finalDate = `${month}/${day}/${year}`;
-     date.innerText = finalDate;
+     
 }
 
 
@@ -116,5 +118,4 @@ const getTheNewWeek = () =>{
      if (count === daysArray.length) {
        count = 0;
      }
-     console.log(newWeek)
 }
