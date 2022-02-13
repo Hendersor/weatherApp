@@ -64,16 +64,20 @@ async function getWeather(){
      const time = new Date();
      const day = time.getDay();
      const todayIs = daysArray[day];
+
      dayText.innerText = todayIs;
      
      const dayClasses = document.querySelectorAll('.daysWeatherContainer .day .week');
-     console.log(dayClasses);
+     const daysClassesArray = [...dayClasses];
+
+
+     for(let i = 0; i < 5; i++){
+          getTheNewWeek(i)
+     }
      
      for(let i=0; i < 5; i++){
-          dayClasses[i].innerText = daysArray[i];
+          dayClasses[i].innerText = newWeek[i];
      }
-
-     const tagSelector = document.getElementsByClassName('.tagTemperature')
 
      // const daily = weatherData.daily;
      // daily.forEach( e =>{
@@ -81,10 +85,6 @@ async function getWeather(){
      //      console.log(tagSelector);
      //      console.log(e.temp.day);
      // });
-
-
-
-
 }
 
 
@@ -92,15 +92,29 @@ const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'Jul
 'August', 'September', 'October', 'November', 'December'];
 
 const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const time = new Date();
+const day = time.getDate();
+const year = time.getFullYear();
 
 const getDate = () => {
-     const time = new Date();
-     const day = time.getDate();
-     const year = time.getFullYear();
      const month = monthArray[time.getMonth()];
-
-
      const finalDate = `${month}/${day}/${year}`;
      date.innerText = finalDate;
 }
 
+
+const todayIs = daysArray[day];
+let todayIsIndex = daysArray.indexOf(todayIs);
+let count = todayIsIndex + 1;
+let newWeek = [];
+
+const getTheNewWeek = () =>{
+     let index = count % daysArray.length;
+     newWeek.push(daysArray[index])
+     count++;
+     
+     if (count === daysArray.length) {
+       count = 0;
+     }
+     console.log(newWeek)
+}
