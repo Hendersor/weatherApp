@@ -39,7 +39,7 @@ function citySearch(e){
 const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 'August', 'September', 'October', 'November', 'December'];
 
-const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const daysArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const time = new Date();
 const day = time.getDate();
 const year = time.getFullYear();
@@ -92,13 +92,15 @@ async function getWeather(){
      }
      
 
-
+     const lowTemperatures = document.querySelectorAll('.lowTemperature');
+     const highTemperatures = document.querySelectorAll('.highTemperature');
      const newWeekArray = weatherData.daily.slice(1);
+     console.log(newWeekArray[0].temp);
      for(let i = 0; i < iconWeekClasses.length; i++){
           let weatherIconWeek = newWeekArray[i].weather[0].icon;
           iconWeekClasses[i].src = `http://openweathermap.org/img/wn/${weatherIconWeek}@4x.png`;
-
-          
+          lowTemperatures[i].innerText = `${newWeekArray[i].temp.min.toFixed(0)}°C`;
+          highTemperatures[i].innerText = `${newWeekArray[i].temp.max.toFixed(0)}°C`;
      }
 
      
