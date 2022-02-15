@@ -239,7 +239,15 @@ html{
       }
 }
 
+@media (min-width: 320px) {
+     .appContainer{
+          width: 100%;
+     }
 
+     .inputContainer{
+          width: 350px;
+     }
+}
 
 
 @media (min-width: 375px){
