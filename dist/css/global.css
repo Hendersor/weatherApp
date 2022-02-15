@@ -307,7 +307,7 @@ html {
 
 @media (min-width: 320px) {
   .appContainer {
-    width: 100%;
+    width: 90%;
   }
   .inputContainer {
     width: 350px;
