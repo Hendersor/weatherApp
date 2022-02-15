@@ -44,9 +44,9 @@ function citySearch(e){
 const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 'August', 'September', 'October', 'November', 'December'];
 
-const daysArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const time = new Date();
-const day = time.getDate();
+const day = time.getDay();
 const year = time.getFullYear();
 
 const getDate = () => {
@@ -57,15 +57,18 @@ const getDate = () => {
 
 const todayIs = daysArray[day];
 let todayIsIndex = daysArray.indexOf(todayIs);
-let count = todayIsIndex + 2;
+todayIsIndex++
+
+
 let newWeek = [];
+console.log(newWeek)
 const getTheNewWeek = () =>{
-     let index = count % daysArray.length;
+     let index = todayIsIndex % daysArray.length;
      newWeek.push(daysArray[index])
-     count++;
+     todayIsIndex++;
      
-     if (count === daysArray.length) {
-       count = 0;
+     if (todayIsIndex === daysArray.length) {
+       todayIsIndex = 0;
      }
 }
 
@@ -77,7 +80,6 @@ async function getWeather(){
      const cityLon = data[0].lon;
      const weatherFetch = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=metric&exclude={part}&appid=86e024a5e8c23b961035736b9f56fd33`);
      const weatherData = await weatherFetch.json();
-     console.log(weatherData);
 
      const iconCode = weatherData.current.weather[0].icon;
      iconImage.src = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
@@ -104,17 +106,16 @@ async function getWeather(){
      const dayClasses = document.querySelectorAll('.daysWeatherContainer .day .week');
      const iconWeekClasses = document.querySelectorAll('.daysWeatherContainer .day .weekIconContainer');
      
-
      for(let i=0; i < 5; i++){
           getTheNewWeek(i)
           dayClasses[i].innerText = newWeek[i];
      }
      
 
+     //Se da la temperatura para los 5 dias de las semana
      const lowTemperatures = document.querySelectorAll('.lowTemperature');
      const highTemperatures = document.querySelectorAll('.highTemperature');
      const newWeekArray = weatherData.daily.slice(1);
-     console.log(newWeekArray);
      for(let i = 0; i < iconWeekClasses.length; i++){
           let weatherIconWeek = newWeekArray[i].weather[0].icon;
           iconWeekClasses[i].src = `http://openweathermap.org/img/wn/${weatherIconWeek}@4x.png`;
@@ -122,7 +123,6 @@ async function getWeather(){
           highTemperatures[i].innerText = `${newWeekArray[i].temp.max.toFixed(0)}°C`;
      }
 
-     console.log(newWeek)
      displayAppAnimation();
 }
 
