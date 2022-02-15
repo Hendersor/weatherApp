@@ -316,16 +316,7 @@ html {
 
 @media (min-width: 768px) {
   .appContainer {
-    width: 50%;
-  }
-  .inputContainer {
-    width: 350px;
-  }
-}
-
-@media (width: 1024px) {
-  .appContainer {
-    width: 35vw;
+    width: 345px;
   }
   .inputContainer {
     width: 350px;
