@@ -93,6 +93,10 @@ html{
 
           }
 
+          #temperature{
+               font-size: 3.5rem;
+          }
+
           .icon{
                width: 70px;
                height: 70px;
@@ -233,4 +237,35 @@ html{
       100%{
           opacity: 1;
       }
+}
+
+
+@media (min-width: 375px){
+     .appContainer{
+          width: 90%;
+     }
+
+     .inputContainer{
+          width: 350px;
+     }
+}
+
+@media (min-width: 768px) {
+     .appContainer{
+          width: 50%;
+     }
+
+     .inputContainer{
+          width: 350px;
+     }
+}
+
+@media (width: 1024px) {
+     .appContainer{
+          width: 35vw;
+     }
+
+     .inputContainer{
+          width: 350px;
+     }
 }

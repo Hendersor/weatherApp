@@ -85,7 +85,7 @@ async function getWeather(){
      iconImage.src = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
 
      const dataTemperature = weatherData.current.temp.toFixed(0);
-     temperature.innerText = `${dataTemperature}°C`;
+     temperature.innerText = `${dataTemperature}°`;
 
      const mainWeather = weatherData.current.weather[0].description;
      clime.innerText = mainWeather;
@@ -119,8 +119,8 @@ async function getWeather(){
      for(let i = 0; i < iconWeekClasses.length; i++){
           let weatherIconWeek = newWeekArray[i].weather[0].icon;
           iconWeekClasses[i].src = `http://openweathermap.org/img/wn/${weatherIconWeek}@4x.png`;
-          lowTemperatures[i].innerText = `${newWeekArray[i].temp.min.toFixed(0)}°C`;
-          highTemperatures[i].innerText = `${newWeekArray[i].temp.max.toFixed(0)}°C`;
+          lowTemperatures[i].innerText = `${newWeekArray[i].temp.min.toFixed(0)}°`;
+          highTemperatures[i].innerText = `${newWeekArray[i].temp.max.toFixed(0)}°`;
      }
 
      displayAppAnimation();
